@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_BANVEXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BENXE">
+          <Key>
+            <PropertyRef Name="MaBenXe" />
+          </Key>
+          <Property Name="MaBenXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TenBenXe" Type="nvarchar" MaxLength="100" />
+          <Property Name="DiemXuatPhat" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CHUYENXE">
+          <Key>
+            <PropertyRef Name="MaChuyenXe" />
+          </Key>
+          <Property Name="MaChuyenXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaLichTrinh" Type="varchar" MaxLength="20" />
+          <Property Name="GiaVe" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GioChay" Type="datetime" />
+          <Property Name="MaXe" Type="varchar" MaxLength="20" />
+          <Property Name="TinhTrang" Type="int" />
+        </EntityType>
+        <EntityType Name="LICHTRINH">
+          <Key>
+            <PropertyRef Name="MaLichTrinh" />
+          </Key>
+          <Property Name="MaLichTrinh" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ThoiGian" Type="varchar" MaxLength="20" />
+          <Property Name="QuangDuong" Type="varchar" MaxLength="20" />
+          <Property Name="MaBenDi" Type="varchar" MaxLength="20" />
+          <Property Name="MaBenDen" Type="varchar" MaxLength="20" />
+          <Property Name="MaLoaiXe" Type="int" />
+        </EntityType>
+        <EntityType Name="LOAINGUOIDUNG">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="int" Nullable="false" />
+          <Property Name="TenLoai" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LOAIXE">
+          <Key>
+            <PropertyRef Name="MaLoaiXe" />
+          </Key>
+          <Property Name="MaLoaiXe" Type="int" Nullable="false" />
+          <Property Name="TenLoaiXe" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NGUOIDUNG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TenDangNhap" Type="varchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="varchar" MaxLength="50" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="SDT" Type="varchar" MaxLength="20" />
+          <Property Name="LoaiNguoiDung" Type="int" />
+        </EntityType>
+        <EntityType Name="PHANCONG">
+          <Key>
+            <PropertyRef Name="MaChuyenXe" />
+            <PropertyRef Name="MaTaiXe" />
+          </Key>
+          <Property Name="MaChuyenXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaTaiXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TAIXE">
+          <Key>
+            <PropertyRef Name="MaTaiXe" />
+          </Key>
+          <Property Name="MaTaiXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TenTaiXe" Type="nvarchar" MaxLength="100" />
+          <Property Name="SDT" Type="varchar" MaxLength="20" />
+          <Property Name="CMND" Type="varchar" MaxLength="20" />
+          <Property Name="NamSinh" Type="int" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="200" />
+          <Property Name="SoNamKinhNghiem" Type="decimal" Precision="3" Scale="1" />
+        </EntityType>
+        <EntityType Name="TINHTRANGCHUYENXE">
+          <Key>
+            <PropertyRef Name="MaTinhTrangCX" />
+          </Key>
+          <Property Name="MaTinhTrangCX" Type="int" Nullable="false" />
+          <Property Name="TenTinhTrangCX" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TINHTRANGVE">
+          <Key>
+            <PropertyRef Name="MaTinhTrang" />
+          </Key>
+          <Property Name="MaTinhTrang" Type="int" Nullable="false" />
+          <Property Name="TenTinhTrang" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="VE">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaKhachHang" Type="int" />
+          <Property Name="MaChuyenXe" Type="varchar" MaxLength="20" />
+          <Property Name="TinhTrangVe" Type="int" />
+          <Property Name="MaNhanVienBanVe" Type="int" />
+          <Property Name="MaGhe" Type="int" />
+        </EntityType>
+        <EntityType Name="XE">
+          <Key>
+            <PropertyRef Name="MaXe" />
+          </Key>
+          <Property Name="MaXe" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TongSoGhe" Type="int" />
+          <Property Name="BienSo" Type="varchar" MaxLength="20" />
+          <Property Name="MaLoaiXe" Type="int" />
+        </EntityType>
+        <Association Name="FK__CHUYENXE__MaLich__2F10007B">
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LICHTRINH">
+              <PropertyRef Name="MaLichTrinh" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MaLichTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUYENXE__MaXe__2C3393D0">
+          <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XE">
+              <PropertyRef Name="MaXe" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUYENXE__TinhTr__29572725">
+          <End Role="TINHTRANGCHUYENXE" Type="Self.TINHTRANGCHUYENXE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGCHUYENXE">
+              <PropertyRef Name="MaTinhTrangCX" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="TinhTrang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHTRINH__MaBen__2D27B809">
+          <End Role="BENXE" Type="Self.BENXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENXE">
+              <PropertyRef Name="MaBenXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaBenDen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHTRINH__MaBen__2E1BDC42">
+          <End Role="BENXE" Type="Self.BENXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENXE">
+              <PropertyRef Name="MaBenXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaBenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHTRINH__MaLoa__286302EC">
+          <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaLoaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NGUOIDUNG__LoaiN__25869641">
+          <End Role="LOAINGUOIDUNG" Type="Self.LOAINGUOIDUNG" Multiplicity="0..1" />
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAINGUOIDUNG">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="NGUOIDUNG">
+              <PropertyRef Name="LoaiNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__MaChuy__30F848ED">
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="MaChuyenXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__MaTaiX__31EC6D26">
+          <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIXE">
+              <PropertyRef Name="MaTaiXe" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="MaTaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaChuyenXe__300424B4">
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaKhachHang__2A4B4B5E">
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOIDUNG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaNhanVienBa__2B3F6F97">
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOIDUNG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaNhanVienBanVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__TinhTrangVe__267ABA7A">
+          <End Role="TINHTRANGVE" Type="Self.TINHTRANGVE" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGVE">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="TinhTrangVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__XE__MaLoaiXe__276EDEB3">
+          <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+          <End Role="XE" Type="Self.XE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Principal>
+            <Dependent Role="XE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="layDanhSachLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DB_BANVEXEModelStoreContainer">
+          <EntitySet Name="BENXE" EntityType="Self.BENXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUYENXE" EntityType="Self.CHUYENXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LICHTRINH" EntityType="Self.LICHTRINH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAINGUOIDUNG" EntityType="Self.LOAINGUOIDUNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAIXE" EntityType="Self.LOAIXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHANCONG" EntityType="Self.PHANCONG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAIXE" EntityType="Self.TAIXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINHTRANGCHUYENXE" EntityType="Self.TINHTRANGCHUYENXE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TINHTRANGVE" EntityType="Self.TINHTRANGVE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VE" EntityType="Self.VE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="XE" EntityType="Self.XE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CHUYENXE__MaLich__2F10007B" Association="Self.FK__CHUYENXE__MaLich__2F10007B">
+            <End Role="LICHTRINH" EntitySet="LICHTRINH" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUYENXE__MaXe__2C3393D0" Association="Self.FK__CHUYENXE__MaXe__2C3393D0">
+            <End Role="XE" EntitySet="XE" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUYENXE__TinhTr__29572725" Association="Self.FK__CHUYENXE__TinhTr__29572725">
+            <End Role="TINHTRANGCHUYENXE" EntitySet="TINHTRANGCHUYENXE" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHTRINH__MaBen__2D27B809" Association="Self.FK__LICHTRINH__MaBen__2D27B809">
+            <End Role="BENXE" EntitySet="BENXE" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHTRINH__MaBen__2E1BDC42" Association="Self.FK__LICHTRINH__MaBen__2E1BDC42">
+            <End Role="BENXE" EntitySet="BENXE" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHTRINH__MaLoa__286302EC" Association="Self.FK__LICHTRINH__MaLoa__286302EC">
+            <End Role="LOAIXE" EntitySet="LOAIXE" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NGUOIDUNG__LoaiN__25869641" Association="Self.FK__NGUOIDUNG__LoaiN__25869641">
+            <End Role="LOAINGUOIDUNG" EntitySet="LOAINGUOIDUNG" />
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__MaChuy__30F848ED" Association="Self.FK__PHANCONG__MaChuy__30F848ED">
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+            <End Role="PHANCONG" EntitySet="PHANCONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__MaTaiX__31EC6D26" Association="Self.FK__PHANCONG__MaTaiX__31EC6D26">
+            <End Role="TAIXE" EntitySet="TAIXE" />
+            <End Role="PHANCONG" EntitySet="PHANCONG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaChuyenXe__300424B4" Association="Self.FK__VE__MaChuyenXe__300424B4">
+            <End Role="CHUYENXE" EntitySet="CHUYENXE" />
+            <End Role="VE" EntitySet="VE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaKhachHang__2A4B4B5E" Association="Self.FK__VE__MaKhachHang__2A4B4B5E">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+            <End Role="VE" EntitySet="VE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaNhanVienBa__2B3F6F97" Association="Self.FK__VE__MaNhanVienBa__2B3F6F97">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
+            <End Role="VE" EntitySet="VE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__TinhTrangVe__267ABA7A" Association="Self.FK__VE__TinhTrangVe__267ABA7A">
+            <End Role="TINHTRANGVE" EntitySet="TINHTRANGVE" />
+            <End Role="VE" EntitySet="VE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__XE__MaLoaiXe__276EDEB3" Association="Self.FK__XE__MaLoaiXe__276EDEB3">
+            <End Role="LOAIXE" EntitySet="LOAIXE" />
+            <End Role="XE" EntitySet="XE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_BANVEXEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BENXE">
+          <Key>
+            <PropertyRef Name="MaBenXe" />
+          </Key>
+          <Property Name="MaBenXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenBenXe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DiemXuatPhat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LICHTRINHs" Relationship="Self.FK__LICHTRINH__MaBen__2D27B809" FromRole="BENXE" ToRole="LICHTRINH" />
+          <NavigationProperty Name="LICHTRINHs1" Relationship="Self.FK__LICHTRINH__MaBen__2E1BDC42" FromRole="BENXE" ToRole="LICHTRINH" />
+        </EntityType>
+        <EntityType Name="CHUYENXE">
+          <Key>
+            <PropertyRef Name="MaChuyenXe" />
+          </Key>
+          <Property Name="MaChuyenXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaLichTrinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="GiaVe" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GioChay" Type="DateTime" Precision="3" />
+          <Property Name="MaXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TinhTrang" Type="Int32" />
+          <NavigationProperty Name="LICHTRINH" Relationship="Self.FK__CHUYENXE__MaLich__2F10007B" FromRole="CHUYENXE" ToRole="LICHTRINH" />
+          <NavigationProperty Name="XE" Relationship="Self.FK__CHUYENXE__MaXe__2C3393D0" FromRole="CHUYENXE" ToRole="XE" />
+          <NavigationProperty Name="TINHTRANGCHUYENXE" Relationship="Self.FK__CHUYENXE__TinhTr__29572725" FromRole="CHUYENXE" ToRole="TINHTRANGCHUYENXE" />
+          <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaChuy__30F848ED" FromRole="CHUYENXE" ToRole="PHANCONG" />
+          <NavigationProperty Name="VEs" Relationship="Self.FK__VE__MaChuyenXe__300424B4" FromRole="CHUYENXE" ToRole="VE" />
+        </EntityType>
+        <EntityType Name="LICHTRINH">
+          <Key>
+            <PropertyRef Name="MaLichTrinh" />
+          </Key>
+          <Property Name="MaLichTrinh" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ThoiGian" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QuangDuong" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MaBenDi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MaBenDen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MaLoaiXe" Type="Int32" />
+          <NavigationProperty Name="BENXE" Relationship="Self.FK__LICHTRINH__MaBen__2D27B809" FromRole="LICHTRINH" ToRole="BENXE" />
+          <NavigationProperty Name="BENXE1" Relationship="Self.FK__LICHTRINH__MaBen__2E1BDC42" FromRole="LICHTRINH" ToRole="BENXE" />
+          <NavigationProperty Name="CHUYENXEs" Relationship="Self.FK__CHUYENXE__MaLich__2F10007B" FromRole="LICHTRINH" ToRole="CHUYENXE" />
+          <NavigationProperty Name="LOAIXE" Relationship="Self.FK__LICHTRINH__MaLoa__286302EC" FromRole="LICHTRINH" ToRole="LOAIXE" />
+        </EntityType>
+        <EntityType Name="LOAINGUOIDUNG">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="Int32" Nullable="false" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NGUOIDUNGs" Relationship="Self.FK__NGUOIDUNG__LoaiN__25869641" FromRole="LOAINGUOIDUNG" ToRole="NGUOIDUNG" />
+        </EntityType>
+        <EntityType Name="LOAIXE">
+          <Key>
+            <PropertyRef Name="MaLoaiXe" />
+          </Key>
+          <Property Name="MaLoaiXe" Type="Int32" Nullable="false" />
+          <Property Name="TenLoaiXe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LICHTRINHs" Relationship="Self.FK__LICHTRINH__MaLoa__286302EC" FromRole="LOAIXE" ToRole="LICHTRINH" />
+          <NavigationProperty Name="XEs" Relationship="Self.FK__XE__MaLoaiXe__276EDEB3" FromRole="LOAIXE" ToRole="XE" />
+        </EntityType>
+        <EntityType Name="NGUOIDUNG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoaiNguoiDung" Type="Int32" />
+          <NavigationProperty Name="LOAINGUOIDUNG1" Relationship="Self.FK__NGUOIDUNG__LoaiN__25869641" FromRole="NGUOIDUNG" ToRole="LOAINGUOIDUNG" />
+          <NavigationProperty Name="VEs" Relationship="Self.FK__VE__MaKhachHang__2A4B4B5E" FromRole="NGUOIDUNG" ToRole="VE" />
+          <NavigationProperty Name="VEs1" Relationship="Self.FK__VE__MaNhanVienBa__2B3F6F97" FromRole="NGUOIDUNG" ToRole="VE" />
+        </EntityType>
+        <EntityType Name="PHANCONG">
+          <Key>
+            <PropertyRef Name="MaChuyenXe" />
+            <PropertyRef Name="MaTaiXe" />
+          </Key>
+          <Property Name="MaChuyenXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaTaiXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUYENXE" Relationship="Self.FK__PHANCONG__MaChuy__30F848ED" FromRole="PHANCONG" ToRole="CHUYENXE" />
+          <NavigationProperty Name="TAIXE" Relationship="Self.FK__PHANCONG__MaTaiX__31EC6D26" FromRole="PHANCONG" ToRole="TAIXE" />
+        </EntityType>
+        <EntityType Name="TAIXE">
+          <Key>
+            <PropertyRef Name="MaTaiXe" />
+          </Key>
+          <Property Name="MaTaiXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenTaiXe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NamSinh" Type="Int32" />
+          <Property Name="DiaChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SoNamKinhNghiem" Type="Decimal" Precision="3" Scale="1" />
+          <NavigationProperty Name="PHANCONGs" Relationship="Self.FK__PHANCONG__MaTaiX__31EC6D26" FromRole="TAIXE" ToRole="PHANCONG" />
+        </EntityType>
+        <EntityType Name="TINHTRANGCHUYENXE">
+          <Key>
+            <PropertyRef Name="MaTinhTrangCX" />
+          </Key>
+          <Property Name="MaTinhTrangCX" Type="Int32" Nullable="false" />
+          <Property Name="TenTinhTrangCX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUYENXEs" Relationship="Self.FK__CHUYENXE__TinhTr__29572725" FromRole="TINHTRANGCHUYENXE" ToRole="CHUYENXE" />
+        </EntityType>
+        <EntityType Name="TINHTRANGVE">
+          <Key>
+            <PropertyRef Name="MaTinhTrang" />
+          </Key>
+          <Property Name="MaTinhTrang" Type="Int32" Nullable="false" />
+          <Property Name="TenTinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="VEs" Relationship="Self.FK__VE__TinhTrangVe__267ABA7A" FromRole="TINHTRANGVE" ToRole="VE" />
+        </EntityType>
+        <EntityType Name="VE">
+          <Key>
+            <PropertyRef Name="MaVe" />
+          </Key>
+          <Property Name="MaVe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKhachHang" Type="Int32" />
+          <Property Name="MaChuyenXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TinhTrangVe" Type="Int32" />
+          <Property Name="MaNhanVienBanVe" Type="Int32" />
+          <Property Name="MaGhe" Type="Int32" />
+          <NavigationProperty Name="CHUYENXE" Relationship="Self.FK__VE__MaChuyenXe__300424B4" FromRole="VE" ToRole="CHUYENXE" />
+          <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK__VE__MaKhachHang__2A4B4B5E" FromRole="VE" ToRole="NGUOIDUNG" />
+          <NavigationProperty Name="NGUOIDUNG1" Relationship="Self.FK__VE__MaNhanVienBa__2B3F6F97" FromRole="VE" ToRole="NGUOIDUNG" />
+          <NavigationProperty Name="TINHTRANGVE1" Relationship="Self.FK__VE__TinhTrangVe__267ABA7A" FromRole="VE" ToRole="TINHTRANGVE" />
+        </EntityType>
+        <EntityType Name="XE">
+          <Key>
+            <PropertyRef Name="MaXe" />
+          </Key>
+          <Property Name="MaXe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TongSoGhe" Type="Int32" />
+          <Property Name="BienSo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MaLoaiXe" Type="Int32" />
+          <NavigationProperty Name="CHUYENXEs" Relationship="Self.FK__CHUYENXE__MaXe__2C3393D0" FromRole="XE" ToRole="CHUYENXE" />
+          <NavigationProperty Name="LOAIXE" Relationship="Self.FK__XE__MaLoaiXe__276EDEB3" FromRole="XE" ToRole="LOAIXE" />
+        </EntityType>
+        <Association Name="FK__LICHTRINH__MaBen__2D27B809">
+          <End Role="BENXE" Type="Self.BENXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENXE">
+              <PropertyRef Name="MaBenXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaBenDen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHTRINH__MaBen__2E1BDC42">
+          <End Role="BENXE" Type="Self.BENXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENXE">
+              <PropertyRef Name="MaBenXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaBenDi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUYENXE__MaLich__2F10007B">
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LICHTRINH">
+              <PropertyRef Name="MaLichTrinh" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MaLichTrinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUYENXE__MaXe__2C3393D0">
+          <End Role="XE" Type="Self.XE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="XE">
+              <PropertyRef Name="MaXe" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="MaXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUYENXE__TinhTr__29572725">
+          <End Role="TINHTRANGCHUYENXE" Type="Self.TINHTRANGCHUYENXE" Multiplicity="0..1" />
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGCHUYENXE">
+              <PropertyRef Name="MaTinhTrangCX" />
+            </Principal>
+            <Dependent Role="CHUYENXE">
+              <PropertyRef Name="TinhTrang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__MaChuy__30F848ED">
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="MaChuyenXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaChuyenXe__300424B4">
+          <End Role="CHUYENXE" Type="Self.CHUYENXE" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUYENXE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaChuyenXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHTRINH__MaLoa__286302EC">
+          <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+          <End Role="LICHTRINH" Type="Self.LICHTRINH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Principal>
+            <Dependent Role="LICHTRINH">
+              <PropertyRef Name="MaLoaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NGUOIDUNG__LoaiN__25869641">
+          <End Role="LOAINGUOIDUNG" Type="Self.LOAINGUOIDUNG" Multiplicity="0..1" />
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAINGUOIDUNG">
+              <PropertyRef Name="MaLoai" />
+            </Principal>
+            <Dependent Role="NGUOIDUNG">
+              <PropertyRef Name="LoaiNguoiDung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__XE__MaLoaiXe__276EDEB3">
+          <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="0..1" />
+          <End Role="XE" Type="Self.XE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOAIXE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Principal>
+            <Dependent Role="XE">
+              <PropertyRef Name="MaLoaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaKhachHang__2A4B4B5E">
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOIDUNG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaKhachHang" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__MaNhanVienBa__2B3F6F97">
+          <End Role="NGUOIDUNG" Type="Self.NGUOIDUNG" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUOIDUNG">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="MaNhanVienBanVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHANCONG__MaTaiX__31EC6D26">
+          <End Role="TAIXE" Type="Self.TAIXE" Multiplicity="1" />
+          <End Role="PHANCONG" Type="Self.PHANCONG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIXE">
+              <PropertyRef Name="MaTaiXe" />
+            </Principal>
+            <Dependent Role="PHANCONG">
+              <PropertyRef Name="MaTaiXe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VE__TinhTrangVe__267ABA7A">
+          <End Role="TINHTRANGVE" Type="Self.TINHTRANGVE" Multiplicity="0..1" />
+          <End Role="VE" Type="Self.VE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TINHTRANGVE">
+              <PropertyRef Name="MaTinhTrang" />
+            </Principal>
+            <Dependent Role="VE">
+              <PropertyRef Name="TinhTrangVe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_BANVEXEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BENXEs" EntityType="Self.BENXE" />
+          <EntitySet Name="CHUYENXEs" EntityType="Self.CHUYENXE" />
+          <EntitySet Name="LICHTRINHs" EntityType="Self.LICHTRINH" />
+          <EntitySet Name="LOAINGUOIDUNGs" EntityType="Self.LOAINGUOIDUNG" />
+          <EntitySet Name="LOAIXEs" EntityType="Self.LOAIXE" />
+          <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
+          <EntitySet Name="PHANCONGs" EntityType="Self.PHANCONG" />
+          <EntitySet Name="TAIXEs" EntityType="Self.TAIXE" />
+          <EntitySet Name="TINHTRANGCHUYENXEs" EntityType="Self.TINHTRANGCHUYENXE" />
+          <EntitySet Name="TINHTRANGVEs" EntityType="Self.TINHTRANGVE" />
+          <EntitySet Name="VEs" EntityType="Self.VE" />
+          <EntitySet Name="XEs" EntityType="Self.XE" />
+          <AssociationSet Name="FK__LICHTRINH__MaBen__2D27B809" Association="Self.FK__LICHTRINH__MaBen__2D27B809">
+            <End Role="BENXE" EntitySet="BENXEs" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHTRINH__MaBen__2E1BDC42" Association="Self.FK__LICHTRINH__MaBen__2E1BDC42">
+            <End Role="BENXE" EntitySet="BENXEs" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUYENXE__MaLich__2F10007B" Association="Self.FK__CHUYENXE__MaLich__2F10007B">
+            <End Role="LICHTRINH" EntitySet="LICHTRINHs" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUYENXE__MaXe__2C3393D0" Association="Self.FK__CHUYENXE__MaXe__2C3393D0">
+            <End Role="XE" EntitySet="XEs" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUYENXE__TinhTr__29572725" Association="Self.FK__CHUYENXE__TinhTr__29572725">
+            <End Role="TINHTRANGCHUYENXE" EntitySet="TINHTRANGCHUYENXEs" />
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__MaChuy__30F848ED" Association="Self.FK__PHANCONG__MaChuy__30F848ED">
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+            <End Role="PHANCONG" EntitySet="PHANCONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaChuyenXe__300424B4" Association="Self.FK__VE__MaChuyenXe__300424B4">
+            <End Role="CHUYENXE" EntitySet="CHUYENXEs" />
+            <End Role="VE" EntitySet="VEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHTRINH__MaLoa__286302EC" Association="Self.FK__LICHTRINH__MaLoa__286302EC">
+            <End Role="LOAIXE" EntitySet="LOAIXEs" />
+            <End Role="LICHTRINH" EntitySet="LICHTRINHs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NGUOIDUNG__LoaiN__25869641" Association="Self.FK__NGUOIDUNG__LoaiN__25869641">
+            <End Role="LOAINGUOIDUNG" EntitySet="LOAINGUOIDUNGs" />
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__XE__MaLoaiXe__276EDEB3" Association="Self.FK__XE__MaLoaiXe__276EDEB3">
+            <End Role="LOAIXE" EntitySet="LOAIXEs" />
+            <End Role="XE" EntitySet="XEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaKhachHang__2A4B4B5E" Association="Self.FK__VE__MaKhachHang__2A4B4B5E">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+            <End Role="VE" EntitySet="VEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__MaNhanVienBa__2B3F6F97" Association="Self.FK__VE__MaNhanVienBa__2B3F6F97">
+            <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+            <End Role="VE" EntitySet="VEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHANCONG__MaTaiX__31EC6D26" Association="Self.FK__PHANCONG__MaTaiX__31EC6D26">
+            <End Role="TAIXE" EntitySet="TAIXEs" />
+            <End Role="PHANCONG" EntitySet="PHANCONGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VE__TinhTrangVe__267ABA7A" Association="Self.FK__VE__TinhTrangVe__267ABA7A">
+            <End Role="TINHTRANGVE" EntitySet="TINHTRANGVEs" />
+            <End Role="VE" EntitySet="VEs" />
+          </AssociationSet>
+          <FunctionImport Name="layDanhSachLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLichTrinh_Result)" />
+        </EntityContainer>
+        <ComplexType Name="layDanhSachLichTrinh_Result">
+          <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_BANVEXEModelStoreContainer" CdmEntityContainer="DB_BANVEXEEntities">
+          <EntitySetMapping Name="BENXEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.BENXE">
+              <MappingFragment StoreEntitySet="BENXE">
+                <ScalarProperty Name="MaBenXe" ColumnName="MaBenXe" />
+                <ScalarProperty Name="TenBenXe" ColumnName="TenBenXe" />
+                <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUYENXEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.CHUYENXE">
+              <MappingFragment StoreEntitySet="CHUYENXE">
+                <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="GioChay" ColumnName="GioChay" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LICHTRINHs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.LICHTRINH">
+              <MappingFragment StoreEntitySet="LICHTRINH">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+                <ScalarProperty Name="MaBenDi" ColumnName="MaBenDi" />
+                <ScalarProperty Name="MaBenDen" ColumnName="MaBenDen" />
+                <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAINGUOIDUNGs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.LOAINGUOIDUNG">
+              <MappingFragment StoreEntitySet="LOAINGUOIDUNG">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAIXEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.LOAIXE">
+              <MappingFragment StoreEntitySet="LOAIXE">
+                <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUOIDUNGs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.NGUOIDUNG">
+              <MappingFragment StoreEntitySet="NGUOIDUNG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="LoaiNguoiDung" ColumnName="LoaiNguoiDung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHANCONGs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.PHANCONG">
+              <MappingFragment StoreEntitySet="PHANCONG">
+                <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+                <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIXEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.TAIXE">
+              <MappingFragment StoreEntitySet="TAIXE">
+                <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+                <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="SoNamKinhNghiem" ColumnName="SoNamKinhNghiem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINHTRANGCHUYENXEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.TINHTRANGCHUYENXE">
+              <MappingFragment StoreEntitySet="TINHTRANGCHUYENXE">
+                <ScalarProperty Name="MaTinhTrangCX" ColumnName="MaTinhTrangCX" />
+                <ScalarProperty Name="TenTinhTrangCX" ColumnName="TenTinhTrangCX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TINHTRANGVEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.TINHTRANGVE">
+              <MappingFragment StoreEntitySet="TINHTRANGVE">
+                <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+                <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.VE">
+              <MappingFragment StoreEntitySet="VE">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+                <ScalarProperty Name="TinhTrangVe" ColumnName="TinhTrangVe" />
+                <ScalarProperty Name="MaNhanVienBanVe" ColumnName="MaNhanVienBanVe" />
+                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XEs">
+            <EntityTypeMapping TypeName="DB_BANVEXEModel.XE">
+              <MappingFragment StoreEntitySet="XE">
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
+                <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+                <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachLichTrinh" FunctionName="DB_BANVEXEModel.Store.layDanhSachLichTrinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLichTrinh_Result">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+                <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

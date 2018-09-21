@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_BANVEXEModelStoreContainer" CdmEntityContainer="DB_BANVEXEEntities">
+    <EntitySetMapping Name="BENXEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.BENXE">
+        <MappingFragment StoreEntitySet="BENXE">
+          <ScalarProperty Name="MaBenXe" ColumnName="MaBenXe" />
+          <ScalarProperty Name="TenBenXe" ColumnName="TenBenXe" />
+          <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUYENXEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.CHUYENXE">
+        <MappingFragment StoreEntitySet="CHUYENXE">
+          <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="GioChay" ColumnName="GioChay" />
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LICHTRINHs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.LICHTRINH">
+        <MappingFragment StoreEntitySet="LICHTRINH">
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+          <ScalarProperty Name="MaBenDi" ColumnName="MaBenDi" />
+          <ScalarProperty Name="MaBenDen" ColumnName="MaBenDen" />
+          <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAINGUOIDUNGs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.LOAINGUOIDUNG">
+        <MappingFragment StoreEntitySet="LOAINGUOIDUNG">
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIXEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.LOAIXE">
+        <MappingFragment StoreEntitySet="LOAIXE">
+          <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+          <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOIDUNGs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.NGUOIDUNG">
+        <MappingFragment StoreEntitySet="NGUOIDUNG">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="LoaiNguoiDung" ColumnName="LoaiNguoiDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHANCONGs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.PHANCONG">
+        <MappingFragment StoreEntitySet="PHANCONG">
+          <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIXEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.TAIXE">
+        <MappingFragment StoreEntitySet="TAIXE">
+          <ScalarProperty Name="MaTaiXe" ColumnName="MaTaiXe" />
+          <ScalarProperty Name="TenTaiXe" ColumnName="TenTaiXe" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="NamSinh" ColumnName="NamSinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SoNamKinhNghiem" ColumnName="SoNamKinhNghiem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGCHUYENXEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.TINHTRANGCHUYENXE">
+        <MappingFragment StoreEntitySet="TINHTRANGCHUYENXE">
+          <ScalarProperty Name="MaTinhTrangCX" ColumnName="MaTinhTrangCX" />
+          <ScalarProperty Name="TenTinhTrangCX" ColumnName="TenTinhTrangCX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINHTRANGVEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.TINHTRANGVE">
+        <MappingFragment StoreEntitySet="TINHTRANGVE">
+          <ScalarProperty Name="MaTinhTrang" ColumnName="MaTinhTrang" />
+          <ScalarProperty Name="TenTinhTrang" ColumnName="TenTinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.VE">
+        <MappingFragment StoreEntitySet="VE">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+          <ScalarProperty Name="TinhTrangVe" ColumnName="TinhTrangVe" />
+          <ScalarProperty Name="MaNhanVienBanVe" ColumnName="MaNhanVienBanVe" />
+          <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XEs">
+      <EntityTypeMapping TypeName="DB_BANVEXEModel.XE">
+        <MappingFragment StoreEntitySet="XE">
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="TongSoGhe" ColumnName="TongSoGhe" />
+          <ScalarProperty Name="BienSo" ColumnName="BienSo" />
+          <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="layDanhSachLichTrinh" FunctionName="DB_BANVEXEModel.Store.layDanhSachLichTrinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLichTrinh_Result">
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+          <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+          <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+          <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,271 @@
+﻿<Page x:Class="QuanLyVeXe.GUI.UIGeneral.DatVe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyVeXe.GUI.UIGeneral"
+      mc:Ignorable="d" 
+      d:DesignHeight="2000" d:DesignWidth="1920"
+      Title="DatVe">
+    <ScrollViewer>
+        <StackPanel  Margin="20, 0">
+            <!--Bước 1: Đặt vé-->
+            <TextBlock Margin="0, 30" TextAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="40">CHỌN TUYẾN</TextBlock>
+            <Grid x:Name="panelChonTuyen" Margin="100,0" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!--Điểm khởi hành-->
+                <TextBlock  VerticalAlignment="Bottom"  FontWeight="Medium">Điểm khởi hành</TextBlock>
+                <ComboBox Grid.Row="1" Margin="0,20,20,20"></ComboBox>
+
+                <!--Điểm đến-->
+                <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="1">Điểm đến</TextBlock>
+                <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,20,20,20"></ComboBox>
+
+                <!--Ngày khởi hành-->
+                <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="2" >Ngày khởi hành</TextBlock>
+                <DatePicker Grid.Row="1" Grid.Column="2"  Margin="0,20,20,20"></DatePicker>
+
+                <!--Số lượng vé-->
+                <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="3">Số lượng vé</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,20,20,20"></TextBox>
+
+
+                <Button Grid.Column="4" Grid.Row="1" Width="150" Height="50" FontSize="25" x:Name="btnDatVe" Click="btnDatVe_Click">Đặt vé</Button>
+            </Grid>
+
+            <!--Bước 2: Chọn ghế-->
+            <TextBlock Margin="0, 30" TextAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="40">CHỌN GHẾ</TextBlock>
+            <Grid x:Name="panelChonGhe" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!--Thông tin chuyến đi-->
+                <StackPanel>
+                    <!--Chọn giờ khỏi hành-->
+                    <StackPanel>
+                        <TextBlock FontSize="16" Foreground="DeepSkyBlue" HorizontalAlignment="Center">CHÂU ĐỐC - CẦN THƠ NGÀY 21-09-2018</TextBlock>
+
+                        <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn tuyến xe</TextBlock>
+                        <RadioButton></RadioButton>
+
+                        <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn giờ khởi hành</TextBlock>
+                        <ComboBox></ComboBox>
+                        <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn điểm lên xe</TextBlock>
+                        <ComboBox></ComboBox>
+
+                        <StackPanel Margin="0, 20, 0, 5" Orientation="Horizontal">
+                            <Button Width="150" Height="50" FontSize="25" Background="Gray" BorderBrush="Gray" x:Name="btnBackToStep1" Click="btnBackToStep1_Click">Quay lại</Button>
+                            <Button Width="150" Height="50" FontSize="25" Margin="10,0" x:Name="btnContinueToStep3" Click="btnContinueToStep3_Click">Tiếp tục</Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--Thông tin chuyến-->
+                    <Grid Margin="0, 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontSize="16" Foreground="DeepSkyBlue" HorizontalAlignment="Center" Grid.ColumnSpan="3">THÔNG TIN CHUYẾN</TextBlock>
+                        <TextBlock FontSize="16" FontWeight="Medium" HorizontalAlignment="Left" Grid.Row="1" Grid.ColumnSpan="3">Xuất phát</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="2" Grid.ColumnSpan="3">22-09-2018</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="3">07:00</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="4" Grid.ColumnSpan="3" Margin="0, 20">8 giờ</TextBlock>
+                        <TextBlock FontSize="16" FontWeight="Medium" HorizontalAlignment="Left" Grid.Row="5" Grid.ColumnSpan="3">Đến lúc</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="6" Grid.ColumnSpan="3">22-09-2018</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="7" Grid.ColumnSpan="3">15:00</TextBlock>
+
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3">Điểm đi</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3">Bến đi</TextBlock>
+
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3">Điểm đến</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3">Bến đến</TextBlock>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" >
+                            <Canvas Height="20" Width="20">
+                                <Ellipse
+                            Width="20"
+                            Height="20"
+                            Fill="White"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="5" />
+                            </Canvas>
+                            <Canvas HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line
+                            X1="0" Y1="0"
+                            X2="0" Y2="110"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="4" />
+                            </Canvas>
+
+                            <Canvas Height="20" Width="20">
+                                <Ellipse
+                            Width="20"
+                            Height="20"
+                            Fill="White"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="5"
+                            Canvas.Top="110"/>
+                            </Canvas>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+                <!--Chọn ghế-->
+                <StackPanel Grid.Column="1">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left">SỐ GHẾ: Chưa chọn ghế</TextBlock>
+                        <TextBlock HorizontalAlignment="Right">TỔNG TIỀN: (0 VND)</TextBlock>
+                    </Grid>
+                    <WrapPanel HorizontalAlignment="Center"  Orientation="Horizontal" Width="900" Height="600">
+                        <Button Margin="80, 10">
+                            <TextBlock>01</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>02</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>03</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>04</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>05</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>06</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>07</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>08</TextBlock>
+                        </Button>
+                    </WrapPanel>
+                </StackPanel>
+            </Grid>
+
+            <!--Bước 3: Xác nhận thông tin-->
+            <TextBlock Margin="0, 30" TextAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="40">THÔNG TIN HÀNH KHÁCH</TextBlock>
+            <Grid x:Name="panelThongTinHanhKhach" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="16" VerticalAlignment="Bottom">Họ tên:</TextBlock>
+                    <TextBox Grid.Column="1"></TextBox>
+
+                    <TextBlock FontSize="16" Grid.Row="1" VerticalAlignment="Bottom">Email:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+
+                    <TextBlock FontSize="16" Grid.Row="2" VerticalAlignment="Bottom">Số điện thoại:</TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
+
+                    <CheckBox FontSize="16" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Chấp nhận điều khoản đặt vé của Futa Bus Lines</CheckBox>
+                    <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Margin="0, 20">
+                        <Button Width="150" Height="50" FontSize="25" Background="Gray" BorderBrush="Gray" x:Name="btnBackToStep2" Click="btnBackToStep2_Click">Quay lại</Button>
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0" x:Name="btnContinueToStep4" Click="btnContinueToStep4_Click">Tiếp tục</Button>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Margin="20,0" Grid.Column="1">
+                    <TextBlock FontSize="35" TextAlignment="Center" Foreground="DeepSkyBlue">ĐIỀU KHOẢN VÀ LƯU Ý</TextBlock>
+
+                    <TextBlock Padding="0, 10" TextWrapping="Wrap" FontSize="16">(*) Quý khách vui lòng mang email có chứa mã vé đến văn phòng để đổi vé lên xe trước giờ xuất bến ít nhất <TextBlock Foreground="DeepSkyBlue" FontWeight="Medium">60 phút</TextBlock> để chúng tôi trung chuyển.</TextBlock>
+
+                    <TextBlock Padding="0, 10" TextWrapping="Wrap" FontSize="16">(*) Thông tin hành khách phải chính xác, nếu không sẽ không thể lên xe hoặc hủy/đổi vé</TextBlock>
+
+                    <TextBlock Padding="0, 10" TextWrapping="Wrap" FontSize="16">(*) Quý khách không được đổi / trả vé vào các ngày Lễ Tết (ngày thường qúy khách được quyền chuyển đổi hoặc hủy vé <TextBlock Foreground="DeepSkyBlue" FontWeight="Medium">một lần</TextBlock> duy nhất trước giờ xe chạy 24 giờ), phí hủy vé 10%. </TextBlock>
+
+                    <TextBlock Padding="0, 10" TextWrapping="Wrap" FontSize="16">(*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ số điện thoại <TextBlock Foreground="DeepSkyBlue" FontWeight="Medium">1900 6067</TextBlock> trước khi đặt vé. Chúng tôi sẽ không đón/ trung chuyển tại những điểm xe trung chuyển không thể tới được.
+                        </TextBlock>
+                </StackPanel>
+            </Grid>
+
+            <!--Bước 4: Thanh toán-->
+            <TextBlock Margin="0, 30" TextAlignment="Center" Background="DeepSkyBlue" Foreground="White" FontSize="40">ĐẶT/MUA VÉ</TextBlock>
+            <Border  x:Name="panelDatMuaVe" Visibility="Collapsed" Margin="200,0" BorderBrush="Gray" CornerRadius="10" BorderThickness="3" Padding="50, 0">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="4" FontSize="35" TextAlignment="Center" Foreground="DeepSkyBlue">THÔNG TIN ĐẶT VÉ</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="1" FontSize="16">Tuyến:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16">Tên tuyến</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="2" FontSize="16">Ngày đi:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="1" FontSize="16">05:00 22-09-2018</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="2" FontSize="16">Ghế:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="3" FontSize="16">12</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="3" Grid.Column="0" FontSize="16">Điểm lên xe:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16">Địa điểm lên xe</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="4" Grid.Column="0" FontSize="16">Họ tên:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="4" Grid.Column="1" FontSize="16">Lương Kiên Hào</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="0" FontSize="16">Email:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="1" FontSize="16">luongkienhao@gmail.com</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="2" FontSize="16">Số điện thoại:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="3" FontSize="16">012345678910</TextBlock>
+
+                    <TextBlock Margin="0, 5" Grid.Row="6" Grid.Column="0" FontSize="16">Tổng tiền:</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="DeepSkyBlue" FontWeight="Medium">100,000đ</TextBlock>
+                    <StackPanel Margin="0, 20" VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0" Background="Gray" BorderBrush="Gray" x:Name="btnBackToStep3" Click="btnBackToStep3_Click">Quay lại</Button>
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0" Background="Green" BorderBrush="Green">Đặt vé</Button>
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0">Mua vé</Button>
+                    </StackPanel>
+                </Grid>
+
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

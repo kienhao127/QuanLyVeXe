@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2f018de4a0a4d75a858aa2e3ee32478" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_BANVEXEModel.BENXE" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.CHUYENXE" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.LICHTRINH" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.LOAINGUOIDUNG" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.LOAIXE" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.NGUOIDUNG" Width="1.5" PointX="8.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.PHANCONG" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.TAIXE" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.TINHTRANGCHUYENXE" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.TINHTRANGVE" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.VE" Width="1.5" PointX="10.5" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BANVEXEModel.XE" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__LICHTRINH__MaBen__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__LICHTRINH__MaBen__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__CHUYENXE__MaLich__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__CHUYENXE__MaXe__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__CHUYENXE__TinhTr__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__PHANCONG__MaChuy__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__VE__MaChuyenXe__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__LICHTRINH__MaLoa__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__NGUOIDUNG__LoaiN__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__XE__MaLoaiXe__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__VE__MaKhachHang__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__VE__MaNhanVienBa__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__PHANCONG__MaTaiX__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BANVEXEModel.FK__VE__TinhTrangVe__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

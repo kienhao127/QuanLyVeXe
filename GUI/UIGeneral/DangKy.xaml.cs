@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyVeXe
+namespace QuanLyVeXe.GUI.UIGeneral
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DangKy.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DangKy : Page
     {
-        public MainWindow()
+        public DangKy()
         {
             InitializeComponent();
         }
