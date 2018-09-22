@@ -80,7 +80,31 @@
     <Compile Include="CHUYENXE.cs">
       <DependentUpon>VeXeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="dangNhap_Result.cs">
+      <DependentUpon>VeXeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIAdminEmployee\TaoNguoiDung.xaml.cs">
+      <DependentUpon>TaoNguoiDung.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIAdminEmployee\ChucNangNhanVien.xaml.cs">
+      <DependentUpon>ChucNangNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIAdminEmployee\QuanLyChuyenXe.xaml.cs">
+      <DependentUpon>QuanLyChuyenXe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIAdminEmployee\QuanLyLichTrinh.xaml.cs">
+      <DependentUpon>QuanLyLichTrinh.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIAdminEmployee\ThongTinDatVe.xaml.cs">
+      <DependentUpon>ThongTinDatVe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIGeneral\TimKiem.xaml.cs">
+      <DependentUpon>TimKiem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="layDanhSachLichTrinh_Result.cs">
+      <DependentUpon>VeXeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="layTatCaLichTrinh_Result.cs">
       <DependentUpon>VeXeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LICHTRINH.cs">
@@ -128,6 +152,26 @@
     <Compile Include="XE.cs">
       <DependentUpon>VeXeModel.tt</DependentUpon>
     </Compile>
+    <Page Include="GUI\UIAdminEmployee\TaoNguoiDung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIAdminEmployee\ChucNangNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIAdminEmployee\QuanLyChuyenXe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIAdminEmployee\QuanLyLichTrinh.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIAdminEmployee\ThongTinDatVe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\UIGeneral\DangKy.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -168,6 +212,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GUI\UIGeneral\TimKiem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -205,8 +253,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GUI\UIAdmin\" />
-    <Folder Include="GUI\UIEmployee\" />
     <Folder Include="GUI\UIGuest\" />
   </ItemGroup>
   <ItemGroup>

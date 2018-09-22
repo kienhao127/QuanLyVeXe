@@ -10,7 +10,7 @@
 
     <Grid HorizontalAlignment="Center">
         <DataGrid CanUserAddRows="False"  
-                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}" Margin="0,0,-154,0">
+                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
 
                 <!--Tên bến đi-->

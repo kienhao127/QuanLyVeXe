@@ -14,6 +14,8 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <TextBox FontSize="30" Width="300" HorizontalAlignment="Left"></TextBox>
+            <Button Margin="10, 0, 30, 0" x:Name="btnTimKiem" Click="btnTimKiem_Click">Tìm kiếm</Button>
             <Border CornerRadius="50" Padding="5" Width="100" Height="50">
                 <Button Name="btnDatVe" Click="btnDatVe_Click" Background="Transparent" Padding="0">
                     <TextBlock Foreground="Black" FontSize="14">ĐẶT VÉ</TextBlock>
@@ -24,16 +26,19 @@
                     <TextBlock Foreground="Black" FontSize="14">LỊCH TRÌNH</TextBlock>
                 </Button>
             </Border>
-            <Border CornerRadius="50" Padding="5" Width="100" Height="50">
+            <Border CornerRadius="50" Padding="5" Width="100" Height="50" x:Name="borderDangKy">
                 <Button Name="btnDangKy" Click="btnDangKy_Click" Background="Transparent" Padding="0">
                     <TextBlock Foreground="Black" FontSize="14">ĐĂNG KÝ</TextBlock>
                 </Button>
             </Border>
-            <Border CornerRadius="50" Padding="5" Width="100" Height="50">
+            <Border CornerRadius="50" Padding="5" Width="100" Height="50" x:Name="borderDangNhap">
                 <Button Name="btnDangNhap" Click="btnDangNhap_Click" Background="Transparent" Padding="0">
                     <TextBlock Foreground="Black" FontSize="14">ĐĂNG NHẬP</TextBlock>
                 </Button>
             </Border>
+            <TextBlock VerticalAlignment="Center" FontSize="20" Visibility="Collapsed" x:Name="txtHello">Xin chào: </TextBlock>
+            <TextBlock VerticalAlignment="Center" FontSize="20" Text="Lương Kiên Hào" FontWeight="Medium" Margin="10" Visibility="Collapsed" x:Name="txtFullname" Foreground="DeepSkyBlue" PreviewMouseDown="txtFullname_PreviewMouseDown"/>
+            <Button x:Name="btnThoat" Click="btnThoat_Click"  Background="Gray" Visibility="Collapsed" BorderBrush="Gray" Margin="10, 0">THOÁT</Button>
         </StackPanel>
         <Frame Grid.Row="1" x:Name="Main" NavigationUIVisibility="Hidden" Padding="10" />
     </Grid>

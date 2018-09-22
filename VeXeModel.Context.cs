@@ -44,5 +44,23 @@ namespace QuanLyVeXe
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachLichTrinh_Result>("layDanhSachLichTrinh");
         }
+    
+        public virtual ObjectResult<dangNhap_Result> dangNhap(string email, string password)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<dangNhap_Result>("dangNhap", emailParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<layTatCaLichTrinh_Result> layTatCaLichTrinh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layTatCaLichTrinh_Result>("layTatCaLichTrinh");
+        }
     }
 }

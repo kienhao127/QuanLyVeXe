@@ -28,6 +28,29 @@ namespace QuanLyVeXe.GUI.UIGeneral
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
+            //List<dangNhap_Result> user = dangNhap(txtEmail.Text, txtPassword.Password);
+            List<dangNhap_Result> user = dangNhap("hao@gmail.com", "123456");
+            if (user.Count == 1)
+            {
+                App.Current.Properties["currentUser"] = user[0];
+                MainWindow main = (MainWindow) Window.GetWindow(this);
+                main.borderDangNhap.Visibility = Visibility.Collapsed;
+                main.borderDangKy.Visibility = Visibility.Collapsed;
+                main.txtFullname.Visibility = Visibility.Visible;
+                main.txtFullname.Text = user[0].HoTen;
+                main.txtHello.Visibility = Visibility.Visible;
+                main.btnThoat.Visibility = Visibility.Visible;
+                NavigationService.Navigate(new DatVe());
+            }
+
+        }
+
+        public List<dangNhap_Result> dangNhap(string email, string password)
+        {
+            using (var ctx = new DB_BANVEXEEntities())
+            {
+                return ctx.dangNhap(email, password).ToList();
+            }
         }
     }
 }

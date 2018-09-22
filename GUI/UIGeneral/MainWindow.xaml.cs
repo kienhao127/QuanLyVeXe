@@ -1,4 +1,5 @@
-﻿using QuanLyVeXe.GUI.UIGeneral;
+﻿using QuanLyVeXe.GUI.UIAdminEmployee;
+using QuanLyVeXe.GUI.UIGeneral;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,30 @@ namespace QuanLyVeXe
         private void btnDangNhap_Click(object sender, RoutedEventArgs e)
         {
             Main.Content = new DangNhap();
+        }
+
+        private void btnTimKiem_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new TimKiem();
+        }
+
+        private void btnThoat_Click(object sender, RoutedEventArgs e)
+        {
+            borderDangNhap.Visibility = Visibility.Visible;
+            borderDangKy.Visibility = Visibility.Visible;
+            txtFullname.Visibility = Visibility.Collapsed;
+            txtHello.Visibility = Visibility.Collapsed;
+            btnThoat.Visibility = Visibility.Collapsed;
+            Main.Content = new DatVe();
+        }
+
+        private void txtFullname_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dangNhap_Result currentUser = (dangNhap_Result) App.Current.Properties["currentUser"];
+            if (currentUser.LoaiNguoiDung == 1 || currentUser.LoaiNguoiDung == 2)
+            {
+                Main.Content = new ChucNangNhanVien();
+            }
         }
     }
 }

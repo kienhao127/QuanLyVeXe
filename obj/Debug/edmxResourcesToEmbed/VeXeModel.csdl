@@ -377,6 +377,11 @@
       <End Role="VE" EntitySet="VEs" />
     </AssociationSet>
     <FunctionImport Name="layDanhSachLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLichTrinh_Result)" />
+    <FunctionImport Name="dangNhap" ReturnType="Collection(DB_BANVEXEModel.dangNhap_Result)">
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="layTatCaLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layTatCaLichTrinh_Result)" />
   </EntityContainer>
   <ComplexType Name="layDanhSachLichTrinh_Result">
     <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
@@ -386,5 +391,22 @@
     <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
     <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
     <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="dangNhap_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TenDangNhap" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MatKhau" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SDT" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="LoaiNguoiDung" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="layTatCaLichTrinh_Result">
+    <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
   </ComplexType>
 </Schema>

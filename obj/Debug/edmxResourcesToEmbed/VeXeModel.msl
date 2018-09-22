@@ -136,5 +136,30 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="dangNhap" FunctionName="DB_BANVEXEModel.Store.dangNhap">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BANVEXEModel.dangNhap_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="LoaiNguoiDung" ColumnName="LoaiNguoiDung" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="layTatCaLichTrinh" FunctionName="DB_BANVEXEModel.Store.layTatCaLichTrinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB_BANVEXEModel.layTatCaLichTrinh_Result">
+          <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+          <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+          <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+          <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+          <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+          <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -30,3 +30,15 @@ C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\bin\Debug\EntityFramework.SqlServer.
 C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\bin\Debug\EntityFramework.xml
 C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\bin\Debug\EntityFramework.SqlServer.xml
 C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\QuanLyVeXe_Content.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIGeneral\TimKiem.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIGeneral\TimKiem.baml
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\TaoNguoiDung.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\ChucNangNhanVien.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\QuanLyChuyenXe.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\QuanLyLichTrinh.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\ThongTinDatVe.g.cs
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\TaoNguoiDung.baml
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\ChucNangNhanVien.baml
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\QuanLyChuyenXe.baml
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\QuanLyLichTrinh.baml
+C:\New folder\HQTCSDL\QuanLyVeXe\QuanLyVeXe\obj\Debug\GUI\UIAdminEmployee\ThongTinDatVe.baml

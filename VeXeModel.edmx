@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_BANVEXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_BANVEXEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BENXE">
           <Key>
             <PropertyRef Name="MaBenXe" />
@@ -284,7 +284,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="dangNhap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="layDanhSachLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layTatCaLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DB_BANVEXEModelStoreContainer">
           <EntitySet Name="BENXE" EntityType="Self.BENXE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUYENXE" EntityType="Self.CHUYENXE" Schema="dbo" store:Type="Tables" />
@@ -355,8 +360,7 @@
             <End Role="XE" EntitySet="XE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_BANVEXEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -737,6 +741,11 @@
             <End Role="VE" EntitySet="VEs" />
           </AssociationSet>
           <FunctionImport Name="layDanhSachLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLichTrinh_Result)" />
+          <FunctionImport Name="dangNhap" ReturnType="Collection(DB_BANVEXEModel.dangNhap_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="layTatCaLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layTatCaLichTrinh_Result)" />
         </EntityContainer>
         <ComplexType Name="layDanhSachLichTrinh_Result">
           <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
@@ -746,6 +755,23 @@
           <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
           <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="dangNhap_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TenDangNhap" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MatKhau" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HoTen" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SDT" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="LoaiNguoiDung" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="layTatCaLichTrinh_Result">
+          <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -885,6 +911,31 @@
                 <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
                 <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
                 <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dangNhap" FunctionName="DB_BANVEXEModel.Store.dangNhap">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.dangNhap_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="LoaiNguoiDung" ColumnName="LoaiNguoiDung" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layTatCaLichTrinh" FunctionName="DB_BANVEXEModel.Store.layTatCaLichTrinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layTatCaLichTrinh_Result">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+                <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -1,0 +1,84 @@
+﻿<Page x:Class="QuanLyVeXe.GUI.UIAdminEmployee.QuanLyLichTrinh"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyVeXe.GUI.UIAdminEmployee"
+      mc:Ignorable="d" 
+      d:DesignHeight="2000" d:DesignWidth="1366"
+      Title="QuanLyLichTrinh">
+
+    <StackPanel>
+        <TextBlock Background="DeepSkyBlue" Foreground="White" FontSize="30" TextAlignment="Center">Quản lý lịch trình</TextBlock>
+        <Grid HorizontalAlignment="Center">
+            <DataGrid CanUserAddRows="False"  
+                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+
+                    <!--Mã lịch trình-->
+                    <DataGridTemplateColumn Width="SizeToCells"  Header="Tên bến đi" x:Name="maLichTrinhCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding MaLichTrinh}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
+                    <!--Tên bến đi-->
+                    <DataGridTemplateColumn Width="SizeToCells"  Header="Tên bến đi" x:Name="benDiCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding BenDi}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Tên bến đến-->
+                    <DataGridTemplateColumn Width="SizeToCells"  Header="Tên bến đến" x:Name="benDenCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding BenDen}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Tên loại xe-->
+                    <DataGridTemplateColumn Width="SizeToCells"  Header="Loại xe" x:Name="loaiXeCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TenLoaiXe}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Quảng đường-->
+                    <DataGridTemplateColumn Width="SizeToHeader"  Header="Quãng đường" x:Name="quangDuongCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding QuangDuong}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Thời gian-->
+                    <DataGridTemplateColumn  Width="SizeToHeader"  Header="Thời gian" x:Name="thoiGianCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ThoiGian}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Mua Vé-->
+                    <DataGridTemplateColumn  Width="SizeToCells" Header="" x:Name="muaVeCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="1" Width="200" Height="30" x:Name="btnSuaLichTrinh">Sửa</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </StackPanel>
+</Page>

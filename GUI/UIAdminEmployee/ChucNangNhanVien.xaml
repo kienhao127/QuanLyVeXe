@@ -1,0 +1,32 @@
+﻿<Page x:Class="QuanLyVeXe.GUI.UIAdminEmployee.ChucNangNhanVien"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLyVeXe.GUI.UIAdminEmployee"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="1366"
+      Title="ChucNangNhanVien">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button x:Name="btnQuanLyLichTrinh" Click="btnQuanLyLichTrinh_Click" Background="Gray" BorderBrush="Gray" Padding="10, 0" Margin="0, 10">
+                <TextBlock FontSize="14">Quản lý lịch trình</TextBlock>
+            </Button>
+            <Button x:Name="btnQuanLyChuyenXe" Background="Gray" BorderBrush="Gray" Click="btnQuanLyChuyenXe_Click" Padding="10, 0" Margin="0, 10" >
+                <TextBlock FontSize="14">Quản lý chuyến xe</TextBlock>
+            </Button>
+            <Button x:Name="btnThongTinDatVe" Background="Gray" BorderBrush="Gray" Click="btnThongTinDatVe_Click" Padding="10, 0" Margin="0, 10" >
+                <TextBlock FontSize="14">Thông tin đặt vé</TextBlock>
+            </Button>
+            <Button x:Name="btnTaoNguoiDung" Background="Gray" BorderBrush="Gray" Click="btnTaoNguoiDung_Click" Padding="10, 0" Margin="0, 10" >
+                <TextBlock FontSize="14">Tạo người dùng</TextBlock>
+            </Button>
+        </StackPanel>
+        <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden" Padding="10" />
+    </Grid>
+</Page>
