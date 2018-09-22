@@ -40,11 +40,6 @@ namespace QuanLyVeXe
         public virtual DbSet<VE> VEs { get; set; }
         public virtual DbSet<XE> XEs { get; set; }
     
-        public virtual ObjectResult<layDanhSachLichTrinh_Result> layDanhSachLichTrinh()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachLichTrinh_Result>("layDanhSachLichTrinh");
-        }
-    
         public virtual ObjectResult<dangNhap_Result> dangNhap(string email, string password)
         {
             var emailParameter = email != null ?
@@ -58,9 +53,253 @@ namespace QuanLyVeXe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<dangNhap_Result>("dangNhap", emailParameter, passwordParameter);
         }
     
+        public virtual ObjectResult<layDanhSachBenDenTuBenDi_Result> layDanhSachBenDenTuBenDi(string maBenXeDi)
+        {
+            var maBenXeDiParameter = maBenXeDi != null ?
+                new ObjectParameter("MaBenXeDi", maBenXeDi) :
+                new ObjectParameter("MaBenXeDi", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachBenDenTuBenDi_Result>("layDanhSachBenDenTuBenDi", maBenXeDiParameter);
+        }
+    
+        public virtual ObjectResult<string> layDanhSachBenDiCoChuyen()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("layDanhSachBenDiCoChuyen");
+        }
+    
+        public virtual ObjectResult<layDanhSachBenXe_Result> layDanhSachBenXe()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachBenXe_Result>("layDanhSachBenXe");
+        }
+    
+        public virtual ObjectResult<layDanhSachChuyenXe_Result> layDanhSachChuyenXe(string maBenDi, string maBenDen)
+        {
+            var maBenDiParameter = maBenDi != null ?
+                new ObjectParameter("MaBenDi", maBenDi) :
+                new ObjectParameter("MaBenDi", typeof(string));
+    
+            var maBenDenParameter = maBenDen != null ?
+                new ObjectParameter("MaBenDen", maBenDen) :
+                new ObjectParameter("MaBenDen", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachChuyenXe_Result>("layDanhSachChuyenXe", maBenDiParameter, maBenDenParameter);
+        }
+    
+        public virtual ObjectResult<layDanhSachChuyenXeTuBenDiBenDenGioChay_Result> layDanhSachChuyenXeTuBenDiBenDenGioChay(string benDi, string benDen, Nullable<System.DateTime> gioChay)
+        {
+            var benDiParameter = benDi != null ?
+                new ObjectParameter("BenDi", benDi) :
+                new ObjectParameter("BenDi", typeof(string));
+    
+            var benDenParameter = benDen != null ?
+                new ObjectParameter("BenDen", benDen) :
+                new ObjectParameter("BenDen", typeof(string));
+    
+            var gioChayParameter = gioChay.HasValue ?
+                new ObjectParameter("GioChay", gioChay) :
+                new ObjectParameter("GioChay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachChuyenXeTuBenDiBenDenGioChay_Result>("layDanhSachChuyenXeTuBenDiBenDenGioChay", benDiParameter, benDenParameter, gioChayParameter);
+        }
+    
+        public virtual ObjectResult<layDanhSachLichTrinh_Result> layDanhSachLichTrinh()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachLichTrinh_Result>("layDanhSachLichTrinh");
+        }
+    
+        public virtual ObjectResult<layDanhSachLoaiNguoiDung_Result> layDanhSachLoaiNguoiDung()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachLoaiNguoiDung_Result>("layDanhSachLoaiNguoiDung");
+        }
+    
+        public virtual ObjectResult<layDanhSachLoaiXe_Result> layDanhSachLoaiXe()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachLoaiXe_Result>("layDanhSachLoaiXe");
+        }
+    
+        public virtual ObjectResult<Nullable<System.DateTime>> layDanhSachNgayTuBenDiVaBenDen(string benDi, string benDen)
+        {
+            var benDiParameter = benDi != null ?
+                new ObjectParameter("BenDi", benDi) :
+                new ObjectParameter("BenDi", typeof(string));
+    
+            var benDenParameter = benDen != null ?
+                new ObjectParameter("BenDen", benDen) :
+                new ObjectParameter("BenDen", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<System.DateTime>>("layDanhSachNgayTuBenDiVaBenDen", benDiParameter, benDenParameter);
+        }
+    
         public virtual ObjectResult<layTatCaLichTrinh_Result> layTatCaLichTrinh()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layTatCaLichTrinh_Result>("layTatCaLichTrinh");
+        }
+    
+        public virtual int themChuyenXe(string maChuyenXe, string maLichTrinh, Nullable<decimal> giaVe, Nullable<System.DateTime> gioChay, string maXe, Nullable<int> tinhTrang)
+        {
+            var maChuyenXeParameter = maChuyenXe != null ?
+                new ObjectParameter("MaChuyenXe", maChuyenXe) :
+                new ObjectParameter("MaChuyenXe", typeof(string));
+    
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var giaVeParameter = giaVe.HasValue ?
+                new ObjectParameter("GiaVe", giaVe) :
+                new ObjectParameter("GiaVe", typeof(decimal));
+    
+            var gioChayParameter = gioChay.HasValue ?
+                new ObjectParameter("GioChay", gioChay) :
+                new ObjectParameter("GioChay", typeof(System.DateTime));
+    
+            var maXeParameter = maXe != null ?
+                new ObjectParameter("MaXe", maXe) :
+                new ObjectParameter("MaXe", typeof(string));
+    
+            var tinhTrangParameter = tinhTrang.HasValue ?
+                new ObjectParameter("TinhTrang", tinhTrang) :
+                new ObjectParameter("TinhTrang", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themChuyenXe", maChuyenXeParameter, maLichTrinhParameter, giaVeParameter, gioChayParameter, maXeParameter, tinhTrangParameter);
+        }
+    
+        public virtual int themLichTrinh(string maLichTrinh, string thoiGian, string quangDuong, string maBenDi, string maBenDen, Nullable<int> maLoaiXe)
+        {
+            var maLichTrinhParameter = maLichTrinh != null ?
+                new ObjectParameter("MaLichTrinh", maLichTrinh) :
+                new ObjectParameter("MaLichTrinh", typeof(string));
+    
+            var thoiGianParameter = thoiGian != null ?
+                new ObjectParameter("ThoiGian", thoiGian) :
+                new ObjectParameter("ThoiGian", typeof(string));
+    
+            var quangDuongParameter = quangDuong != null ?
+                new ObjectParameter("QuangDuong", quangDuong) :
+                new ObjectParameter("QuangDuong", typeof(string));
+    
+            var maBenDiParameter = maBenDi != null ?
+                new ObjectParameter("MaBenDi", maBenDi) :
+                new ObjectParameter("MaBenDi", typeof(string));
+    
+            var maBenDenParameter = maBenDen != null ?
+                new ObjectParameter("MaBenDen", maBenDen) :
+                new ObjectParameter("MaBenDen", typeof(string));
+    
+            var maLoaiXeParameter = maLoaiXe.HasValue ?
+                new ObjectParameter("MaLoaiXe", maLoaiXe) :
+                new ObjectParameter("MaLoaiXe", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themLichTrinh", maLichTrinhParameter, thoiGianParameter, quangDuongParameter, maBenDiParameter, maBenDenParameter, maLoaiXeParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> layTongSoGhe(string maXe)
+        {
+            var maXeParameter = maXe != null ?
+                new ObjectParameter("MaXe", maXe) :
+                new ObjectParameter("MaXe", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("layTongSoGhe", maXeParameter);
+        }
+    
+        public virtual ObjectResult<layDanhSachGheDaDat_Result> layDanhSachGheDaDat(string maChuyenXe)
+        {
+            var maChuyenXeParameter = maChuyenXe != null ?
+                new ObjectParameter("MaChuyenXe", maChuyenXe) :
+                new ObjectParameter("MaChuyenXe", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<layDanhSachGheDaDat_Result>("layDanhSachGheDaDat", maChuyenXeParameter);
+        }
+    
+        public virtual int capNhatTaiXe(string maTaiXe, Nullable<decimal> soNamKinhNghiem)
+        {
+            var maTaiXeParameter = maTaiXe != null ?
+                new ObjectParameter("MaTaiXe", maTaiXe) :
+                new ObjectParameter("MaTaiXe", typeof(string));
+    
+            var soNamKinhNghiemParameter = soNamKinhNghiem.HasValue ?
+                new ObjectParameter("SoNamKinhNghiem", soNamKinhNghiem) :
+                new ObjectParameter("SoNamKinhNghiem", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("capNhatTaiXe", maTaiXeParameter, soNamKinhNghiemParameter);
+        }
+    
+        public virtual int taiXeDamNhiem()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("taiXeDamNhiem");
+        }
+    
+        public virtual int taiXeTren5NamKN()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("taiXeTren5NamKN");
+        }
+    
+        public virtual int themNguoiDung(string tenDangNhap, string matKhau, string hoTen, string email, string sDT, Nullable<int> loaiNguoiDung)
+        {
+            var tenDangNhapParameter = tenDangNhap != null ?
+                new ObjectParameter("TenDangNhap", tenDangNhap) :
+                new ObjectParameter("TenDangNhap", typeof(string));
+    
+            var matKhauParameter = matKhau != null ?
+                new ObjectParameter("MatKhau", matKhau) :
+                new ObjectParameter("MatKhau", typeof(string));
+    
+            var hoTenParameter = hoTen != null ?
+                new ObjectParameter("HoTen", hoTen) :
+                new ObjectParameter("HoTen", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var sDTParameter = sDT != null ?
+                new ObjectParameter("SDT", sDT) :
+                new ObjectParameter("SDT", typeof(string));
+    
+            var loaiNguoiDungParameter = loaiNguoiDung.HasValue ?
+                new ObjectParameter("LoaiNguoiDung", loaiNguoiDung) :
+                new ObjectParameter("LoaiNguoiDung", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themNguoiDung", tenDangNhapParameter, matKhauParameter, hoTenParameter, emailParameter, sDTParameter, loaiNguoiDungParameter);
+        }
+    
+        public virtual int themXe(string maXe, Nullable<int> tongSoGhe, string bienSo, Nullable<int> maLoaiXe)
+        {
+            var maXeParameter = maXe != null ?
+                new ObjectParameter("MaXe", maXe) :
+                new ObjectParameter("MaXe", typeof(string));
+    
+            var tongSoGheParameter = tongSoGhe.HasValue ?
+                new ObjectParameter("TongSoGhe", tongSoGhe) :
+                new ObjectParameter("TongSoGhe", typeof(int));
+    
+            var bienSoParameter = bienSo != null ?
+                new ObjectParameter("BienSo", bienSo) :
+                new ObjectParameter("BienSo", typeof(string));
+    
+            var maLoaiXeParameter = maLoaiXe.HasValue ?
+                new ObjectParameter("MaLoaiXe", maLoaiXe) :
+                new ObjectParameter("MaLoaiXe", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themXe", maXeParameter, tongSoGheParameter, bienSoParameter, maLoaiXeParameter);
+        }
+    
+        public virtual int xoaLoaiNguoiDung(Nullable<int> maLoai)
+        {
+            var maLoaiParameter = maLoai.HasValue ?
+                new ObjectParameter("MaLoai", maLoai) :
+                new ObjectParameter("MaLoai", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaLoaiNguoiDung", maLoaiParameter);
+        }
+    
+        public virtual int xoaLoaiXe(Nullable<int> maLoaiXe)
+        {
+            var maLoaiXeParameter = maLoaiXe.HasValue ?
+                new ObjectParameter("MaLoaiXe", maLoaiXe) :
+                new ObjectParameter("MaLoaiXe", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaLoaiXe", maLoaiXeParameter);
         }
     }
 }

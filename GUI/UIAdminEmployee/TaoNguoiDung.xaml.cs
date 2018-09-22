@@ -23,6 +23,15 @@ namespace QuanLyVeXe.GUI.UIAdminEmployee
         public TaoNguoiDung()
         {
             InitializeComponent();
+            cboLoaiNguoiDung.ItemsSource = layDanhSachLoaiNguoiDung();
+        }
+
+        public List<layDanhSachLoaiNguoiDung_Result> layDanhSachLoaiNguoiDung()
+        {
+            using (var ctx = new DB_BANVEXEEntities())
+            {
+                return ctx.layDanhSachLoaiNguoiDung().ToList();
+            }
         }
     }
 }

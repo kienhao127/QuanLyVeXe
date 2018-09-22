@@ -24,6 +24,26 @@ namespace QuanLyVeXe.GUI.UIAdminEmployee
         {
             InitializeComponent();
             DataContext = layTatCaLichTrinh();
+            cboBenDi.ItemsSource = layDanhSachBenXe();
+            cboBenDen.ItemsSource = layDanhSachBenXe();
+            cboLoaiXe.ItemsSource = layDanhSachLoaiXe();
+            panelAddOrEdit.Visibility = Visibility.Visible;
+        }
+
+        public List<layDanhSachLoaiXe_Result> layDanhSachLoaiXe()
+        {
+            using (var ctx = new DB_BANVEXEEntities())
+            {
+                return ctx.layDanhSachLoaiXe().ToList();
+            }
+        }
+
+        public List<layDanhSachBenXe_Result> layDanhSachBenXe()
+        {
+            using (var ctx = new DB_BANVEXEEntities())
+            {
+                return ctx.layDanhSachBenXe().ToList();
+            }
         }
 
         public List<layTatCaLichTrinh_Result> layTatCaLichTrinh()
@@ -32,6 +52,37 @@ namespace QuanLyVeXe.GUI.UIAdminEmployee
             {
                 return ctx.layTatCaLichTrinh().ToList();
             }
+        }
+
+        private void btnThem_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtMaLichTrinh.Text != "" && txtQuangDuong.Text != "" && txtThoiGian.Text != "")
+            {
+                using (var ctx = new DB_BANVEXEEntities())
+                {
+                    int result = ctx.themLichTrinh(txtMaLichTrinh.Text, txtThoiGian.Text, txtQuangDuong.Text, ((layDanhSachBenXe_Result)cboBenDi.SelectedItem).MaBenXe, ((layDanhSachBenXe_Result)cboBenDen.SelectedItem).MaBenXe, ((layDanhSachLoaiXe_Result)cboLoaiXe.SelectedItem).MaLoaiXe);
+                    if (result != 0)
+                    {
+                        MessageBox.Show("Thêm thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại");
+                    }
+                }
+            }
+        }
+
+        private void btnShowAdd_Click(object sender, RoutedEventArgs e)
+        {
+            panelAddOrEdit.Visibility = Visibility.Visible;
+            btnThem.Content = "Thêm";
+        }
+
+        private void btnSuaLichTrinh_Click(object sender, RoutedEventArgs e)
+        {
+            SuaLichTrinh suaLichTrinh = new SuaLichTrinh((layTatCaLichTrinh_Result)lichTrinhDataGrid.SelectedItem);
+            suaLichTrinh.ShowDialog();
         }
     }
 }

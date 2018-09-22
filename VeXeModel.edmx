@@ -284,12 +284,80 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="capNhatTaiXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaTaiXe" Type="varchar" Mode="In" />
+          <Parameter Name="SoNamKinhNghiem" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="dangNhap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="layDanhSachBenDenTuBenDi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaBenXeDi" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="layDanhSachBenDiCoChuyen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layDanhSachBenXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layDanhSachChuyenXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaBenDi" Type="varchar" Mode="In" />
+          <Parameter Name="MaBenDen" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="layDanhSachChuyenXeTuBenDiBenDenGioChay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BenDi" Type="nvarchar" Mode="In" />
+          <Parameter Name="BenDen" Type="nvarchar" Mode="In" />
+          <Parameter Name="GioChay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="layDanhSachGheDaDat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaChuyenXe" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="layDanhSachLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layDanhSachLoaiNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layDanhSachLoaiXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layDanhSachNgayTuBenDiVaBenDen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BenDi" Type="nvarchar" Mode="In" />
+          <Parameter Name="BenDen" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="layTatCaLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="layTongSoGhe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaXe" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="taiXeDamNhiem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="taiXeTren5NamKN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="themChuyenXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaChuyenXe" Type="varchar" Mode="In" />
+          <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+          <Parameter Name="GiaVe" Type="decimal" Mode="In" />
+          <Parameter Name="GioChay" Type="datetime" Mode="In" />
+          <Parameter Name="MaXe" Type="varchar" Mode="In" />
+          <Parameter Name="TinhTrang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="themLichTrinh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaLichTrinh" Type="varchar" Mode="In" />
+          <Parameter Name="ThoiGian" Type="varchar" Mode="In" />
+          <Parameter Name="QuangDuong" Type="varchar" Mode="In" />
+          <Parameter Name="MaBenDi" Type="varchar" Mode="In" />
+          <Parameter Name="MaBenDen" Type="varchar" Mode="In" />
+          <Parameter Name="MaLoaiXe" Type="int" Mode="In" />
+        </Function>
+        <Function Name="themNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDangNhap" Type="varchar" Mode="In" />
+          <Parameter Name="MatKhau" Type="varchar" Mode="In" />
+          <Parameter Name="HoTen" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="SDT" Type="varchar" Mode="In" />
+          <Parameter Name="LoaiNguoiDung" Type="int" Mode="In" />
+        </Function>
+        <Function Name="themXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaXe" Type="varchar" Mode="In" />
+          <Parameter Name="TongSoGhe" Type="int" Mode="In" />
+          <Parameter Name="BienSo" Type="varchar" Mode="In" />
+          <Parameter Name="MaLoaiXe" Type="int" Mode="In" />
+        </Function>
+        <Function Name="xoaLoaiNguoiDung" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaLoai" Type="int" Mode="In" />
+        </Function>
+        <Function Name="xoaLoaiXe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaLoaiXe" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_BANVEXEModelStoreContainer">
           <EntitySet Name="BENXE" EntityType="Self.BENXE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHUYENXE" EntityType="Self.CHUYENXE" Schema="dbo" store:Type="Tables" />
@@ -740,22 +808,81 @@
             <End Role="TINHTRANGVE" EntitySet="TINHTRANGVEs" />
             <End Role="VE" EntitySet="VEs" />
           </AssociationSet>
-          <FunctionImport Name="layDanhSachLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLichTrinh_Result)" />
           <FunctionImport Name="dangNhap" ReturnType="Collection(DB_BANVEXEModel.dangNhap_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="layDanhSachBenDenTuBenDi" ReturnType="Collection(DB_BANVEXEModel.layDanhSachBenDenTuBenDi_Result)">
+          <Parameter Name="MaBenXeDi" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="layDanhSachBenDiCoChuyen" ReturnType="Collection(String)" />
+          <FunctionImport Name="layDanhSachBenXe" ReturnType="Collection(DB_BANVEXEModel.layDanhSachBenXe_Result)" />
+          <FunctionImport Name="layDanhSachChuyenXe" ReturnType="Collection(DB_BANVEXEModel.layDanhSachChuyenXe_Result)">
+            <Parameter Name="MaBenDi" Mode="In" Type="String" />
+            <Parameter Name="MaBenDen" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="layDanhSachChuyenXeTuBenDiBenDenGioChay" ReturnType="Collection(DB_BANVEXEModel.layDanhSachChuyenXeTuBenDiBenDenGioChay_Result)">
+            <Parameter Name="BenDi" Mode="In" Type="String" />
+            <Parameter Name="BenDen" Mode="In" Type="String" />
+            <Parameter Name="GioChay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="layDanhSachLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLichTrinh_Result)" />
+          <FunctionImport Name="layDanhSachLoaiNguoiDung" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLoaiNguoiDung_Result)" />
+          <FunctionImport Name="layDanhSachLoaiXe" ReturnType="Collection(DB_BANVEXEModel.layDanhSachLoaiXe_Result)" />
+          <FunctionImport Name="layDanhSachNgayTuBenDiVaBenDen" ReturnType="Collection(DateTime)">
+            <Parameter Name="BenDi" Mode="In" Type="String" />
+            <Parameter Name="BenDen" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="layTatCaLichTrinh" ReturnType="Collection(DB_BANVEXEModel.layTatCaLichTrinh_Result)" />
+          <FunctionImport Name="themChuyenXe">
+            <Parameter Name="MaChuyenXe" Mode="In" Type="String" />
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="GiaVe" Mode="In" Type="Decimal" />
+            <Parameter Name="GioChay" Mode="In" Type="DateTime" />
+            <Parameter Name="MaXe" Mode="In" Type="String" />
+            <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="themLichTrinh">
+            <Parameter Name="MaLichTrinh" Mode="In" Type="String" />
+            <Parameter Name="ThoiGian" Mode="In" Type="String" />
+            <Parameter Name="QuangDuong" Mode="In" Type="String" />
+            <Parameter Name="MaBenDi" Mode="In" Type="String" />
+            <Parameter Name="MaBenDen" Mode="In" Type="String" />
+            <Parameter Name="MaLoaiXe" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="layTongSoGhe" ReturnType="Collection(Int32)">
+          <Parameter Name="MaXe" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="layDanhSachGheDaDat" ReturnType="Collection(DB_BANVEXEModel.layDanhSachGheDaDat_Result)">
+          <Parameter Name="MaChuyenXe" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="capNhatTaiXe">
+            <Parameter Name="MaTaiXe" Mode="In" Type="String" />
+            <Parameter Name="SoNamKinhNghiem" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="taiXeDamNhiem" />
+          <FunctionImport Name="taiXeTren5NamKN" />
+          <FunctionImport Name="themNguoiDung">
+            <Parameter Name="TenDangNhap" Mode="In" Type="String" />
+            <Parameter Name="MatKhau" Mode="In" Type="String" />
+            <Parameter Name="HoTen" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="SDT" Mode="In" Type="String" />
+            <Parameter Name="LoaiNguoiDung" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="themXe">
+            <Parameter Name="MaXe" Mode="In" Type="String" />
+            <Parameter Name="TongSoGhe" Mode="In" Type="Int32" />
+            <Parameter Name="BienSo" Mode="In" Type="String" />
+            <Parameter Name="MaLoaiXe" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="xoaLoaiNguoiDung">
+            <Parameter Name="MaLoai" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="xoaLoaiXe">
+            <Parameter Name="MaLoaiXe" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="layDanhSachLichTrinh_Result">
-          <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
-          <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
-        </ComplexType>
         <ComplexType Name="dangNhap_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="TenDangNhap" Nullable="true" MaxLength="50" />
@@ -765,6 +892,58 @@
           <Property Type="String" Name="SDT" Nullable="true" MaxLength="20" />
           <Property Type="Int32" Name="LoaiNguoiDung" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="layDanhSachBenDenTuBenDi_Result">
+          <Property Type="String" Name="MaBenXe" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TenBenXe" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DiemXuatPhat" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachBenXe_Result">
+          <Property Type="String" Name="MaBenXe" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TenBenXe" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DiemXuatPhat" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachChuyenXe_Result">
+          <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="GioChay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="MaBenDi" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MaBenDen" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="DiemXuatPhatDi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DiemXuatPhatDen" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachChuyenXeTuBenDiBenDenGioChay_Result">
+          <Property Type="String" Name="MaChuyenXe" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MaLichTrinh" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="GioChay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="MaXe" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="TinhTrang" Nullable="true" />
+          <Property Type="String" Name="MaBenXe" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TenBenXe" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DiemXuatPhat" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachLichTrinh_Result">
+          <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="BenDen" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="GiaVe" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachLoaiNguoiDung_Result">
+          <Property Type="Int32" Name="MaLoai" Nullable="false" />
+          <Property Type="String" Name="TenLoai" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachLoaiXe_Result">
+          <Property Type="Int32" Name="MaLoaiXe" Nullable="false" />
+          <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
+        </ComplexType>
         <ComplexType Name="layTatCaLichTrinh_Result">
           <Property Type="String" Name="MaLichTrinh" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="BenDi" Nullable="true" MaxLength="100" />
@@ -772,6 +951,16 @@
           <Property Type="String" Name="TenLoaiXe" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="QuangDuong" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="ThoiGian" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MaBenDi" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MaBenDen" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="layDanhSachGheDaDat_Result">
+          <Property Type="String" Name="MaVe" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="MaKhachHang" Nullable="true" />
+          <Property Type="String" Name="MaChuyenXe" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="TinhTrangVe" Nullable="true" />
+          <Property Type="Int32" Name="MaNhanVienBanVe" Nullable="true" />
+          <Property Type="Int32" Name="MaGhe" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -901,19 +1090,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="layDanhSachLichTrinh" FunctionName="DB_BANVEXEModel.Store.layDanhSachLichTrinh">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLichTrinh_Result">
-                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
-                <ScalarProperty Name="BenDi" ColumnName="BenDi" />
-                <ScalarProperty Name="BenDen" ColumnName="BenDen" />
-                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
-                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
-                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
-                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="dangNhap" FunctionName="DB_BANVEXEModel.Store.dangNhap">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DB_BANVEXEModel.dangNhap_Result">
@@ -927,6 +1103,88 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachBenDenTuBenDi" FunctionName="DB_BANVEXEModel.Store.layDanhSachBenDenTuBenDi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachBenDenTuBenDi_Result">
+                <ScalarProperty Name="MaBenXe" ColumnName="MaBenXe" />
+                <ScalarProperty Name="TenBenXe" ColumnName="TenBenXe" />
+                <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachBenDiCoChuyen" FunctionName="DB_BANVEXEModel.Store.layDanhSachBenDiCoChuyen" />
+          <FunctionImportMapping FunctionImportName="layDanhSachBenXe" FunctionName="DB_BANVEXEModel.Store.layDanhSachBenXe">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachBenXe_Result">
+                <ScalarProperty Name="MaBenXe" ColumnName="MaBenXe" />
+                <ScalarProperty Name="TenBenXe" ColumnName="TenBenXe" />
+                <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachChuyenXe" FunctionName="DB_BANVEXEModel.Store.layDanhSachChuyenXe">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachChuyenXe_Result">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+                <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="GioChay" ColumnName="GioChay" />
+                <ScalarProperty Name="MaBenDi" ColumnName="MaBenDi" />
+                <ScalarProperty Name="MaBenDen" ColumnName="MaBenDen" />
+                <ScalarProperty Name="DiemXuatPhatDi" ColumnName="DiemXuatPhatDi" />
+                <ScalarProperty Name="DiemXuatPhatDen" ColumnName="DiemXuatPhatDen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachChuyenXeTuBenDiBenDenGioChay" FunctionName="DB_BANVEXEModel.Store.layDanhSachChuyenXeTuBenDiBenDenGioChay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachChuyenXeTuBenDiBenDenGioChay_Result">
+                <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+                <ScalarProperty Name="GioChay" ColumnName="GioChay" />
+                <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="MaBenXe" ColumnName="MaBenXe" />
+                <ScalarProperty Name="TenBenXe" ColumnName="TenBenXe" />
+                <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachLichTrinh" FunctionName="DB_BANVEXEModel.Store.layDanhSachLichTrinh">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLichTrinh_Result">
+                <ScalarProperty Name="MaLichTrinh" ColumnName="MaLichTrinh" />
+                <ScalarProperty Name="BenDi" ColumnName="BenDi" />
+                <ScalarProperty Name="BenDen" ColumnName="BenDen" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+                <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachLoaiNguoiDung" FunctionName="DB_BANVEXEModel.Store.layDanhSachLoaiNguoiDung">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLoaiNguoiDung_Result">
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachLoaiXe" FunctionName="DB_BANVEXEModel.Store.layDanhSachLoaiXe">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachLoaiXe_Result">
+                <ScalarProperty Name="MaLoaiXe" ColumnName="MaLoaiXe" />
+                <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="layDanhSachNgayTuBenDiVaBenDen" FunctionName="DB_BANVEXEModel.Store.layDanhSachNgayTuBenDiVaBenDen" />
           <FunctionImportMapping FunctionImportName="layTatCaLichTrinh" FunctionName="DB_BANVEXEModel.Store.layTatCaLichTrinh">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DB_BANVEXEModel.layTatCaLichTrinh_Result">
@@ -936,9 +1194,33 @@
                 <ScalarProperty Name="TenLoaiXe" ColumnName="TenLoaiXe" />
                 <ScalarProperty Name="QuangDuong" ColumnName="QuangDuong" />
                 <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="MaBenDi" ColumnName="MaBenDi" />
+                <ScalarProperty Name="MaBenDen" ColumnName="MaBenDen" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="themChuyenXe" FunctionName="DB_BANVEXEModel.Store.themChuyenXe" />
+          <FunctionImportMapping FunctionImportName="themLichTrinh" FunctionName="DB_BANVEXEModel.Store.themLichTrinh" />
+          <FunctionImportMapping FunctionImportName="layTongSoGhe" FunctionName="DB_BANVEXEModel.Store.layTongSoGhe" />
+          <FunctionImportMapping FunctionImportName="layDanhSachGheDaDat" FunctionName="DB_BANVEXEModel.Store.layDanhSachGheDaDat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_BANVEXEModel.layDanhSachGheDaDat_Result">
+                <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaChuyenXe" ColumnName="MaChuyenXe" />
+                <ScalarProperty Name="TinhTrangVe" ColumnName="TinhTrangVe" />
+                <ScalarProperty Name="MaNhanVienBanVe" ColumnName="MaNhanVienBanVe" />
+                <ScalarProperty Name="MaGhe" ColumnName="MaGhe" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="capNhatTaiXe" FunctionName="DB_BANVEXEModel.Store.capNhatTaiXe" />
+          <FunctionImportMapping FunctionImportName="taiXeDamNhiem" FunctionName="DB_BANVEXEModel.Store.taiXeDamNhiem" />
+          <FunctionImportMapping FunctionImportName="taiXeTren5NamKN" FunctionName="DB_BANVEXEModel.Store.taiXeTren5NamKN" />
+          <FunctionImportMapping FunctionImportName="themNguoiDung" FunctionName="DB_BANVEXEModel.Store.themNguoiDung" />
+          <FunctionImportMapping FunctionImportName="themXe" FunctionName="DB_BANVEXEModel.Store.themXe" />
+          <FunctionImportMapping FunctionImportName="xoaLoaiNguoiDung" FunctionName="DB_BANVEXEModel.Store.xoaLoaiNguoiDung" />
+          <FunctionImportMapping FunctionImportName="xoaLoaiXe" FunctionName="DB_BANVEXEModel.Store.xoaLoaiXe" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

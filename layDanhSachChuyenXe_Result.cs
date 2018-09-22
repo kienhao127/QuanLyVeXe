@@ -11,7 +11,7 @@ namespace QuanLyVeXe
 {
     using System;
     
-    public partial class layTatCaLichTrinh_Result
+    public partial class layDanhSachChuyenXe_Result
     {
         public string MaLichTrinh { get; set; }
         public string BenDi { get; set; }
@@ -19,7 +19,11 @@ namespace QuanLyVeXe
         public string TenLoaiXe { get; set; }
         public string QuangDuong { get; set; }
         public string ThoiGian { get; set; }
+        public Nullable<decimal> GiaVe { get; set; }
+        public Nullable<System.DateTime> GioChay { get; set; }
         public string MaBenDi { get; set; }
         public string MaBenDen { get; set; }
+        public string DiemXuatPhatDi { get; set; }
+        public string DiemXuatPhatDen { get; set; }
     }
 }

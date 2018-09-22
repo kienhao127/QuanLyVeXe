@@ -11,15 +11,10 @@ namespace QuanLyVeXe
 {
     using System;
     
-    public partial class layTatCaLichTrinh_Result
+    public partial class layDanhSachBenXe_Result
     {
-        public string MaLichTrinh { get; set; }
-        public string BenDi { get; set; }
-        public string BenDen { get; set; }
-        public string TenLoaiXe { get; set; }
-        public string QuangDuong { get; set; }
-        public string ThoiGian { get; set; }
-        public string MaBenDi { get; set; }
-        public string MaBenDen { get; set; }
+        public string MaBenXe { get; set; }
+        public string TenBenXe { get; set; }
+        public string DiemXuatPhat { get; set; }
     }
 }
