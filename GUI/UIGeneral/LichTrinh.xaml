@@ -67,6 +67,14 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+                <!--Mua Vé-->
+                <DataGridTemplateColumn  Width="SizeToCells" Header="" x:Name="muaVeCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="1" Width="200" Height="30" x:Name="btnMuaVe" Click="btnMuaVe_Click">Mua vé</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

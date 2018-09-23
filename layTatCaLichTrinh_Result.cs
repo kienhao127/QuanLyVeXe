@@ -19,7 +19,5 @@ namespace QuanLyVeXe
         public string TenLoaiXe { get; set; }
         public string QuangDuong { get; set; }
         public string ThoiGian { get; set; }
-        public string MaBenDi { get; set; }
-        public string MaBenDen { get; set; }
     }
 }

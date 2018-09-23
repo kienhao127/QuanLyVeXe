@@ -26,19 +26,19 @@
 
                 <!--Điểm khởi hành-->
                 <TextBlock  VerticalAlignment="Bottom"  FontWeight="Medium">Điểm khởi hành</TextBlock>
-                <ComboBox Grid.Row="1" Margin="0,20,20,20" x:Name="cboDiemKhoiHanh" SelectionChanged="cboDiemKhoiHanh_SelectionChanged"></ComboBox>
+                <ComboBox Grid.Row="1" Margin="0,20,20,20"></ComboBox>
 
                 <!--Điểm đến-->
                 <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="1">Điểm đến</TextBlock>
-                <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,20,20,20" x:Name="cboDiemDen" DisplayMemberPath="TenBenXe" SelectionChanged="cboDiemDen_SelectionChanged"></ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,20,20,20"></ComboBox>
 
                 <!--Ngày khởi hành-->
                 <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="2" >Ngày khởi hành</TextBlock>
-                <ComboBox Grid.Row="1" Grid.Column="2"  x:Name="cboNgayKhoiHanh" Margin="0,20,20,20" SelectionChanged="cboNgayKhoiHanh_SelectionChanged"></ComboBox>
+                <DatePicker Grid.Row="1" Grid.Column="2"  Margin="0,20,20,20"></DatePicker>
 
                 <!--Số lượng vé-->
                 <TextBlock VerticalAlignment="Bottom" FontWeight="Medium" Grid.Column="3">Số lượng vé</TextBlock>
-                <TextBox Grid.Row="1" x:Name="txtSoLuongVe" Grid.Column="3" Margin="0,20,20,20"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="3" Margin="0,20,20,20"></TextBox>
 
 
                 <Button Grid.Column="4" Grid.Row="1" Width="150" Height="50" FontSize="25" x:Name="btnDatVe" Click="btnDatVe_Click">Đặt vé</Button>
@@ -55,26 +55,113 @@
                 <StackPanel>
                     <!--Chọn giờ khỏi hành-->
                     <StackPanel>
-                        <TextBlock FontSize="16" Foreground="DeepSkyBlue" HorizontalAlignment="Center" x:Name="txtThongTinChuyen">CHÂU ĐỐC - CẦN THƠ NGÀY 21-09-2018</TextBlock>
+                        <TextBlock FontSize="16" Foreground="DeepSkyBlue" HorizontalAlignment="Center">CHÂU ĐỐC - CẦN THƠ NGÀY 21-09-2018</TextBlock>
 
                         <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn tuyến xe</TextBlock>
-                        <ComboBox x:Name="cboChonTuyenXe" DisplayMemberPath="DiemXuatPhat" SelectionChanged="cboChonTuyenXe_SelectionChanged"></ComboBox>
+                        <RadioButton></RadioButton>
+
+                        <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn giờ khởi hành</TextBlock>
+                        <ComboBox></ComboBox>
+                        <TextBlock Margin="0, 20, 0, 5" FontWeight="Medium" HorizontalAlignment="Left">Chọn điểm lên xe</TextBlock>
+                        <ComboBox></ComboBox>
 
                         <StackPanel Margin="0, 20, 0, 5" Orientation="Horizontal">
                             <Button Width="150" Height="50" FontSize="25" Background="Gray" BorderBrush="Gray" x:Name="btnBackToStep1" Click="btnBackToStep1_Click">Quay lại</Button>
                             <Button Width="150" Height="50" FontSize="25" Margin="10,0" x:Name="btnContinueToStep3" Click="btnContinueToStep3_Click">Tiếp tục</Button>
                         </StackPanel>
                     </StackPanel>
+                    <!--Thông tin chuyến-->
+                    <Grid Margin="0, 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock FontSize="16" Foreground="DeepSkyBlue" HorizontalAlignment="Center" Grid.ColumnSpan="3">THÔNG TIN CHUYẾN</TextBlock>
+                        <TextBlock FontSize="16" FontWeight="Medium" HorizontalAlignment="Left" Grid.Row="1" Grid.ColumnSpan="3">Xuất phát</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="2" Grid.ColumnSpan="3">22-09-2018</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="3" Grid.ColumnSpan="3">07:00</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="4" Grid.ColumnSpan="3" Margin="0, 20">8 giờ</TextBlock>
+                        <TextBlock FontSize="16" FontWeight="Medium" HorizontalAlignment="Left" Grid.Row="5" Grid.ColumnSpan="3">Đến lúc</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="6" Grid.ColumnSpan="3">22-09-2018</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Row="7" Grid.ColumnSpan="3">15:00</TextBlock>
+
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3">Điểm đi</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3">Bến đi</TextBlock>
+
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3">Điểm đến</TextBlock>
+                        <TextBlock FontSize="16" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3">Bến đến</TextBlock>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" >
+                            <Canvas Height="20" Width="20">
+                                <Ellipse
+                            Width="20"
+                            Height="20"
+                            Fill="White"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="5" />
+                            </Canvas>
+                            <Canvas HorizontalAlignment="Center" VerticalAlignment="Top">
+                                <Line
+                            X1="0" Y1="0"
+                            X2="0" Y2="110"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="4" />
+                            </Canvas>
+
+                            <Canvas Height="20" Width="20">
+                                <Ellipse
+                            Width="20"
+                            Height="20"
+                            Fill="White"
+                            Stroke="DeepSkyBlue"
+                            StrokeThickness="5"
+                            Canvas.Top="110"/>
+                            </Canvas>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
 
                 <!--Chọn ghế-->
-                
                 <StackPanel Grid.Column="1">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" FontSize="15">SỐ GHẾ: <TextBlock x:Name="tbDanhSachGhe">Chưa chọn ghế</TextBlock></TextBlock>
-                        <TextBlock HorizontalAlignment="Right" FontSize="15">TỔNG TIỀN:<TextBlock x:Name="txtTongTien"> 0</TextBlock> VND</TextBlock>
+                        <TextBlock HorizontalAlignment="Left">SỐ GHẾ: Chưa chọn ghế</TextBlock>
+                        <TextBlock HorizontalAlignment="Right">TỔNG TIỀN: (0 VND)</TextBlock>
                     </Grid>
-                    <WrapPanel HorizontalAlignment="Center"  Orientation="Horizontal" x:Name="panelGheNgoi">
+                    <WrapPanel HorizontalAlignment="Center"  Orientation="Horizontal" Width="900" Height="600">
+                        <Button Margin="80, 10">
+                            <TextBlock>01</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>02</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>03</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>04</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>05</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>06</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>07</TextBlock>
+                        </Button>
+                        <Button Margin="80, 10">
+                            <TextBlock>08</TextBlock>
+                        </Button>
                     </WrapPanel>
                 </StackPanel>
             </Grid>
@@ -99,13 +186,13 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock FontSize="16" VerticalAlignment="Bottom">Họ tên:</TextBlock>
-                    <TextBox x:Name="txtHoTen" FontSize="15" Grid.Column="1"></TextBox>
+                    <TextBox Grid.Column="1"></TextBox>
 
                     <TextBlock FontSize="16" Grid.Row="1" VerticalAlignment="Bottom">Email:</TextBlock>
-                    <TextBox x:Name="txtEmail" FontSize="15" Grid.Column="1" Grid.Row="1"></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
 
                     <TextBlock FontSize="16" Grid.Row="2" VerticalAlignment="Bottom">Số điện thoại:</TextBlock>
-                    <TextBox x:Name="txtSoDT" FontSize="15" Grid.Column="1" Grid.Row="2"></TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
 
                     <CheckBox FontSize="16" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom">Chấp nhận điều khoản đặt vé của Futa Bus Lines</CheckBox>
                     <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Margin="0, 20">
@@ -149,32 +236,32 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.ColumnSpan="4" FontSize="35" TextAlignment="Center" Foreground="DeepSkyBlue">THÔNG TIN ĐẶT VÉ</TextBlock>
                     <TextBlock Margin="0, 5" Grid.Row="1" FontSize="16">Tuyến:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16" x:Name="txtTenTuyen">Tên tuyến</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16">Tên tuyến</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="2" FontSize="16">Ngày đi:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="1" FontSize="16" x:Name="txtNgayDi">05:00 22-09-2018</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="1" FontSize="16">05:00 22-09-2018</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="2" FontSize="16">Ghế:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="3" FontSize="16" x:Name="txtDanhSachGhe">12</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="2" Grid.Column="3" FontSize="16">12</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="3" Grid.Column="0" FontSize="16">Điểm lên xe:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16" x:Name="txtDiaDiemLenXe">Địa điểm lên xe</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" FontSize="16">Địa điểm lên xe</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="4" Grid.Column="0" FontSize="16">Họ tên:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="4" Grid.Column="1" FontSize="16" x:Name="txtHoTenDayDu">Lương Kiên Hào</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="4" Grid.Column="1" FontSize="16">Lương Kiên Hào</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="0" FontSize="16">Email:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="1" FontSize="16" x:Name="txtXacNhanEmail">luongkienhao@gmail.com</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="1" FontSize="16">luongkienhao@gmail.com</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="2" FontSize="16">Số điện thoại:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="3" FontSize="16" x:Name="txtSoDienThoai">012345678910</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="5" Grid.Column="3" FontSize="16">012345678910</TextBlock>
 
                     <TextBlock Margin="0, 5" Grid.Row="6" Grid.Column="0" FontSize="16">Tổng tiền:</TextBlock>
-                    <TextBlock Margin="0, 5" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="DeepSkyBlue" FontWeight="Medium" x:Name="txtXacNhanTongTien">100,000</TextBlock>
+                    <TextBlock Margin="0, 5" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="DeepSkyBlue" FontWeight="Medium">100,000đ</TextBlock>
                     <StackPanel Margin="0, 20" VerticalAlignment="Bottom" Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="4" HorizontalAlignment="Center">
                         <Button Width="150" Height="50" FontSize="25" Margin="10,0" Background="Gray" BorderBrush="Gray" x:Name="btnBackToStep3" Click="btnBackToStep3_Click">Quay lại</Button>
-                        <Button Width="150" Height="50" FontSize="25" Margin="10,0" Background="Green" BorderBrush="Green" x:Name="btnDatVeFinal" Click="btnDatVeFinal_Click">Đặt vé</Button>
-                        <Button Width="150" Height="50" FontSize="25" x:Name="btnMuaVe" Click="btnMuaVe_Click" Margin="10,0">Mua vé</Button>
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0" Background="Green" BorderBrush="Green">Đặt vé</Button>
+                        <Button Width="150" Height="50" FontSize="25" Margin="10,0">Mua vé</Button>
                     </StackPanel>
                 </Grid>
 
